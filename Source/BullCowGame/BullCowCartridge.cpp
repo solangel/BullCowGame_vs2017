@@ -23,9 +23,11 @@ void UBullCowCartridge::SetupGame()
     PrintLine(TEXT("You Have %i lives"), Lives);
     PrintLine(TEXT("Type on your guess and \npress enter to continue...")); //Prompt for a guess
 
-    const TCHAR HW[] = TEXT("cakes");
-    PrintLine(TEXT("Character 1 of the hidden word is: %c"),HiddenWord[0]);
-    PrintLine(TEXT("The 4th character of HW is: %c"),HW[3]);
+    // const TCHAR HW[] = TEXT("cakes");
+    // PrintLine(TEXT("Character 1 of the hidden word is: %c"),HiddenWord[0]);
+    // PrintLine(TEXT("The 4th character of HW is: %c"),HW[3]); 
+
+    IsIsogram(HiddenWord);
 }
 
 void UBullCowCartridge::EndGame()
@@ -73,7 +75,11 @@ void UBullCowCartridge::ProcessGuess(const FString & Guess)
     PrintLine(TEXT("Guess agan, you have %i lives left"), Lives);
 }
 
-bool UBullCowCartridge::IsIsogram(FString Word)
+bool UBullCowCartridge::IsIsogram(FString Word) const
 {
+    for (int32 Index = 0; Index < Word.Len(); Index++)
+    {
+        PrintLine(TEXT("%c"),Word[Index]);
+    }
     return true;
 }
